@@ -1,286 +1,1349 @@
-<!DOCTYPE html><html><head>
-      <title>widget</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-      <link rel="stylesheet" href="file:////Users/ticore/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.2/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
-      
-      
+<!DOCTYPE html>
+<html>
 
-      
-      
-      
-      
-      
-      
-      
+<head>
+  <title>widget</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <style>
-      /**
+
+  <style>
+    /**
  * prism.js Github theme based on GitHub's theme.
  * @author Sam Clarke
  */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: #333;
-  background: none;
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.4;
+    code[class*="language-"],
+    pre[class*="language-"] {
+      color: #333;
+      background: none;
+      font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+      line-height: 1.4;
 
-  -moz-tab-size: 8;
-  -o-tab-size: 8;
-  tab-size: 8;
+      -moz-tab-size: 8;
+      -o-tab-size: 8;
+      tab-size: 8;
 
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-}
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+    }
 
-/* Code blocks */
-pre[class*="language-"] {
-  padding: .8em;
-  overflow: auto;
-  /* border: 1px solid #ddd; */
-  border-radius: 3px;
-  /* background: #fff; */
-  background: #f5f5f5;
-}
+    /* Code blocks */
+    pre[class*="language-"] {
+      padding: .8em;
+      overflow: auto;
+      /* border: 1px solid #ddd; */
+      border-radius: 3px;
+      /* background: #fff; */
+      background: #f5f5f5;
+    }
 
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  padding: .1em;
-  border-radius: .3em;
-  white-space: normal;
-  background: #f5f5f5;
-}
+    /* Inline code */
+    :not(pre)>code[class*="language-"] {
+      padding: .1em;
+      border-radius: .3em;
+      white-space: normal;
+      background: #f5f5f5;
+    }
 
-.token.comment,
-.token.blockquote {
-  color: #969896;
-}
+    .token.comment,
+    .token.blockquote {
+      color: #969896;
+    }
 
-.token.cdata {
-  color: #183691;
-}
+    .token.cdata {
+      color: #183691;
+    }
 
-.token.doctype,
-.token.punctuation,
-.token.variable,
-.token.macro.property {
-  color: #333;
-}
+    .token.doctype,
+    .token.punctuation,
+    .token.variable,
+    .token.macro.property {
+      color: #333;
+    }
 
-.token.operator,
-.token.important,
-.token.keyword,
-.token.rule,
-.token.builtin {
-  color: #a71d5d;
-}
+    .token.operator,
+    .token.important,
+    .token.keyword,
+    .token.rule,
+    .token.builtin {
+      color: #a71d5d;
+    }
 
-.token.string,
-.token.url,
-.token.regex,
-.token.attr-value {
-  color: #183691;
-}
+    .token.string,
+    .token.url,
+    .token.regex,
+    .token.attr-value {
+      color: #183691;
+    }
 
-.token.property,
-.token.number,
-.token.boolean,
-.token.entity,
-.token.atrule,
-.token.constant,
-.token.symbol,
-.token.command,
-.token.code {
-  color: #0086b3;
-}
+    .token.property,
+    .token.number,
+    .token.boolean,
+    .token.entity,
+    .token.atrule,
+    .token.constant,
+    .token.symbol,
+    .token.command,
+    .token.code {
+      color: #0086b3;
+    }
 
-.token.tag,
-.token.selector,
-.token.prolog {
-  color: #63a35c;
-}
+    .token.tag,
+    .token.selector,
+    .token.prolog {
+      color: #63a35c;
+    }
 
-.token.function,
-.token.namespace,
-.token.pseudo-element,
-.token.class,
-.token.class-name,
-.token.pseudo-class,
-.token.id,
-.token.url-reference .token.variable,
-.token.attr-name {
-  color: #795da3;
-}
+    .token.function,
+    .token.namespace,
+    .token.pseudo-element,
+    .token.class,
+    .token.class-name,
+    .token.pseudo-class,
+    .token.id,
+    .token.url-reference .token.variable,
+    .token.attr-name {
+      color: #795da3;
+    }
 
-.token.entity {
-  cursor: help;
-}
+    .token.entity {
+      cursor: help;
+    }
 
-.token.title,
-.token.title .token.punctuation {
-  font-weight: bold;
-  color: #1d3e81;
-}
+    .token.title,
+    .token.title .token.punctuation {
+      font-weight: bold;
+      color: #1d3e81;
+    }
 
-.token.list {
-  color: #ed6a43;
-}
+    .token.list {
+      color: #ed6a43;
+    }
 
-.token.inserted {
-  background-color: #eaffea;
-  color: #55a532;
-}
+    .token.inserted {
+      background-color: #eaffea;
+      color: #55a532;
+    }
 
-.token.deleted {
-  background-color: #ffecec;
-  color: #bd2c00;
-}
+    .token.deleted {
+      background-color: #ffecec;
+      color: #bd2c00;
+    }
 
-.token.bold {
-  font-weight: bold;
-}
+    .token.bold {
+      font-weight: bold;
+    }
 
-.token.italic {
-  font-style: italic;
-}
+    .token.italic {
+      font-style: italic;
+    }
 
 
-/* JSON */
-.language-json .token.property {
-  color: #183691;
-}
+    /* JSON */
+    .language-json .token.property {
+      color: #183691;
+    }
 
-.language-markup .token.tag .token.punctuation {
-  color: #333;
-}
+    .language-markup .token.tag .token.punctuation {
+      color: #333;
+    }
 
-/* CSS */
-code.language-css,
-.language-css .token.function {
-  color: #0086b3;
-}
+    /* CSS */
+    code.language-css,
+    .language-css .token.function {
+      color: #0086b3;
+    }
 
-/* YAML */
-.language-yaml .token.atrule {
-  color: #63a35c;
-}
+    /* YAML */
+    .language-yaml .token.atrule {
+      color: #63a35c;
+    }
 
-code.language-yaml {
-  color: #183691;
-}
+    code.language-yaml {
+      color: #183691;
+    }
 
-/* Ruby */
-.language-ruby .token.function {
-  color: #333;
-}
+    /* Ruby */
+    .language-ruby .token.function {
+      color: #333;
+    }
 
-/* Markdown */
-.language-markdown .token.url {
-  color: #795da3;
-}
+    /* Markdown */
+    .language-markdown .token.url {
+      color: #795da3;
+    }
 
-/* Makefile */
-.language-makefile .token.symbol {
-  color: #795da3;
-}
+    /* Makefile */
+    .language-makefile .token.symbol {
+      color: #795da3;
+    }
 
-.language-makefile .token.variable {
-  color: #183691;
-}
+    .language-makefile .token.variable {
+      color: #183691;
+    }
 
-.language-makefile .token.builtin {
-  color: #0086b3;
-}
+    .language-makefile .token.builtin {
+      color: #0086b3;
+    }
 
-/* Bash */
-.language-bash .token.keyword {
-  color: #0086b3;
-}
+    /* Bash */
+    .language-bash .token.keyword {
+      color: #0086b3;
+    }
 
-/* highlight */
-pre[data-line] {
-  position: relative;
-  padding: 1em 0 1em 3em;
-}
-pre[data-line] .line-highlight-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  display: block;
-  width: 100%;
-}
+    /* highlight */
+    pre[data-line] {
+      position: relative;
+      padding: 1em 0 1em 3em;
+    }
 
-pre[data-line] .line-highlight {
-  position: absolute;
-  left: 0;
-  right: 0;
-  padding: inherit 0;
-  margin-top: 1em;
-  background: hsla(24, 20%, 50%,.08);
-  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
-  pointer-events: none;
-  line-height: inherit;
-  white-space: pre;
-}
+    pre[data-line] .line-highlight-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      display: block;
+      width: 100%;
+    }
 
-pre[data-line] .line-highlight:before, 
-pre[data-line] .line-highlight[data-end]:after {
-  content: attr(data-start);
-  position: absolute;
-  top: .4em;
-  left: .6em;
-  min-width: 1em;
-  padding: 0 .5em;
-  background-color: hsla(24, 20%, 50%,.4);
-  color: hsl(24, 20%, 95%);
-  font: bold 65%/1.5 sans-serif;
-  text-align: center;
-  vertical-align: .3em;
-  border-radius: 999px;
-  text-shadow: none;
-  box-shadow: 0 1px white;
-}
+    pre[data-line] .line-highlight {
+      position: absolute;
+      left: 0;
+      right: 0;
+      padding: inherit 0;
+      margin-top: 1em;
+      background: hsla(24, 20%, 50%, .08);
+      background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
+      pointer-events: none;
+      line-height: inherit;
+      white-space: pre;
+    }
 
-pre[data-line] .line-highlight[data-end]:after {
-  content: attr(data-end);
-  top: auto;
-  bottom: .4em;
-}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
-/* Please visit the URL below for more information: */
-/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+    pre[data-line] .line-highlight:before,
+    pre[data-line] .line-highlight[data-end]:after {
+      content: attr(data-start);
+      position: absolute;
+      top: .4em;
+      left: .6em;
+      min-width: 1em;
+      padding: 0 .5em;
+      background-color: hsla(24, 20%, 50%, .4);
+      color: hsl(24, 20%, 95%);
+      font: bold 65%/1.5 sans-serif;
+      text-align: center;
+      vertical-align: .3em;
+      border-radius: 999px;
+      text-shadow: none;
+      box-shadow: 0 1px white;
+    }
 
-      </style>
-    </head>
-    <body for="html-export">
-      <div class="mume markdown-preview  ">
-      <p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="1105px" preserveAspectRatio="none" style="width:1078px;height:1105px;" version="1.1" viewBox="0 0 1078 1105" width="1078px" zoomAndPan="magnify"><defs><filter height="300%" id="foojg3ng0iidc" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[e9dc9881b850c1e2d2a8f30edb40e840]
-class Widget--><rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="223.4609" id="Widget" style="stroke: #383838; stroke-width: 1.5;" width="246" x="821" y="420.5"/><ellipse cx="920.25" cy="436.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;"/><path d="M920.3633,432.0981 L919.2095,437.1699 L921.5254,437.1699 Z M918.8691,429.8569 L921.8657,429.8569 L925.2109,442.25 L922.7622,442.25 L921.9985,439.187 L918.7197,439.187 L917.9727,442.25 L915.5239,442.25 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="39" x="940.75" y="441.0352">Widget</text><line style="stroke: #383838; stroke-width: 1.5;" x1="822" x2="1066" y1="452.5" y2="452.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="110" x="827" y="467.1348">:: &#x63CF;&#x8FF0; Element &#x8A2D;&#x5B9A; ::</text><line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="1066" y1="473.4551" y2="473.4551"/><line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="1066" y1="475.4551" y2="475.4551"/><ellipse cx="832" cy="484.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="92" x="841" y="488.0898">Widget({Key key})</text><line style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 1.0,2.0;" x1="822" x2="1066" y1="494.4102" y2="494.4102"/><ellipse cx="832" cy="505.4102" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="40" x="841" y="509.0449">Key key</text><line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="1066" y1="515.3652" y2="515.3652"/><line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="1066" y1="517.3652" y2="517.3652"/><ellipse cx="832" cy="526.3652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="142" x="841" y="530">createElement() &#x2192; Element</text><ellipse cx="832" cy="539.3203" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="108" x="841" y="542.9551">debugFillProperties(</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="208" x="853" y="555.9102">DiagnosticPropertiesBuilder properties</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="841" y="568.8652">) &#x2192; void</text><ellipse cx="832" cy="578.1855" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="129" x="841" y="581.8203">toStringShort() &#x2192; String</text><ellipse cx="832" cy="608.0957" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="61" x="841" y="611.7305">canUpdate(</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="194" x="853" y="624.6855">Widget oldWidget, Widget newWidget</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="45" x="841" y="637.6406">) &#x2192; bool</text><line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="929.5" y1="594.6182" y2="594.6182"/><line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="929.5" y1="596.6182" y2="596.6182"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="29" x="929.5" y="598.2754">Static</text><line style="stroke: #383838; stroke-width: 1.0;" x1="958.5" x2="1066" y1="594.6182" y2="594.6182"/><line style="stroke: #383838; stroke-width: 1.0;" x1="958.5" x2="1066" y1="596.6182" y2="596.6182"/><!--MD5=[c0bbeea4f22081f7ba4cc23736e716f1]
-class StatelessWidget--><rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="202.5059" id="StatelessWidget" style="stroke: #383838; stroke-width: 1.5;" width="235" x="472" y="8.5"/><ellipse cx="540.75" cy="24.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;"/><path d="M540.8633,20.0981 L539.7095,25.1699 L542.0254,25.1699 Z M539.3691,17.8569 L542.3657,17.8569 L545.7109,30.25 L543.2622,30.25 L542.4985,27.187 L539.2197,27.187 L538.4727,30.25 L536.0239,30.25 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="89" x="561.25" y="29.0352">StatelessWidget</text><line style="stroke: #383838; stroke-width: 1.5;" x1="473" x2="706" y1="40.5" y2="40.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="478" y="55.1348">:: &#x7121;&#x53EF;&#x8B8A;&#x72C0;&#x614B; ::</text><line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="706" y1="61.4551" y2="61.4551"/><line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="706" y1="63.4551" y2="63.4551"/><ellipse cx="483" cy="72.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="139" x="492" y="76.0898">StatelessWidget({Key key})</text><line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="706" y1="82.4102" y2="82.4102"/><line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="706" y1="84.4102" y2="84.4102"/><ellipse cx="483" cy="93.4102" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="209" x="492" y="97.0449">build(BuildContext context) &#x2192; Widget</text><ellipse cx="483" cy="106.3652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="189" x="492" y="110">createElement() &#x2192; StatelessElement</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="133.2754"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="67" x="492" y="139.9102">AboutDialog</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="146.2305"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="60" x="492" y="152.8652">AlertDialog</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="159.1855"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="24" x="492" y="165.8203">Text</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="172.1406"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="492" y="178.7754">Theme</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="185.0957"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="23" x="492" y="191.7305">Title</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="198.0508"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9" x="492" y="204.6855">...</text><line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="553" y1="122.7979" y2="122.7979"/><line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="553" y1="124.7979" y2="124.7979"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="553" y="126.4551">Implementers</text><line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="706" y1="122.7979" y2="122.7979"/><line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="706" y1="124.7979" y2="124.7979"/><!--MD5=[1b217b79be856388b7827a34a8d95d7e]
-class StatefulWidget--><rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="202.5059" id="StatefulWidget" style="stroke: #383838; stroke-width: 1.5;" width="236" x="471.5" y="246.5"/><ellipse cx="544.75" cy="262.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;"/><path d="M544.8633,258.0981 L543.7095,263.1699 L546.0254,263.1699 Z M543.3691,255.8569 L546.3657,255.8569 L549.7109,268.25 L547.2622,268.25 L546.4985,265.187 L543.2197,265.187 L542.4727,268.25 L540.0239,268.25 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="81" x="565.25" y="267.0352">StatefulWidget</text><line style="stroke: #383838; stroke-width: 1.5;" x1="472.5" x2="706.5" y1="278.5" y2="278.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="84" x="477.5" y="293.1348">:: &#x5177;&#x6709;&#x53EF;&#x8B8A;&#x72C0;&#x614B; ::</text><line style="stroke: #383838; stroke-width: 1.0;" x1="472.5" x2="706.5" y1="299.4551" y2="299.4551"/><line style="stroke: #383838; stroke-width: 1.0;" x1="472.5" x2="706.5" y1="301.4551" y2="301.4551"/><ellipse cx="482.5" cy="310.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="132" x="491.5" y="314.0898">StatefulWidget({Key key})</text><line style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 1.0,2.0;" x1="472.5" x2="706.5" y1="320.4102" y2="320.4102"/><ellipse cx="482.5" cy="331.4102" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="182" x="491.5" y="335.0449">createElement() &#x2192; StatefulElement</text><ellipse cx="482.5" cy="344.3652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="210" x="491.5" y="348">createState() &#x2192; State&lt;StatefulWidget&gt;</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="371.2754"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="70" x="491.5" y="377.9102">AnimatedList</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="384.2305"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="87" x="491.5" y="390.8652">AnimatedWidget</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="397.1855"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="39" x="491.5" y="403.8203">AppBar</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="410.1406"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="76" x="491.5" y="416.7754">CupertinoApp</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="423.0957"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="89" x="491.5" y="429.7305">CupertinoButton</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="436.0508"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9" x="491.5" y="442.6855">...</text><line style="stroke: #383838; stroke-width: 1.0;" x1="472.5" x2="553" y1="360.7979" y2="360.7979"/><line style="stroke: #383838; stroke-width: 1.0;" x1="472.5" x2="553" y1="362.7979" y2="362.7979"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="553" y="364.4551">Implementers</text><line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="706.5" y1="360.7979" y2="360.7979"/><line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="706.5" y1="362.7979" y2="362.7979"/><!--MD5=[50490a11d69e361743dab0fb378d8b95]
-class ProxyWidget--><rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="94.8652" id="ProxyWidget" style="stroke: #383838; stroke-width: 1.5;" width="278" x="450.5" y="484.5"/><ellipse cx="549.75" cy="500.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;"/><path d="M549.8633,496.0981 L548.7095,501.1699 L551.0254,501.1699 Z M548.3691,493.8569 L551.3657,493.8569 L554.7109,506.25 L552.2622,506.25 L551.4985,503.187 L548.2197,503.187 L547.4727,506.25 L545.0239,506.25 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="71" x="570.25" y="505.0352">ProxyWidget</text><line style="stroke: #383838; stroke-width: 1.5;" x1="451.5" x2="727.5" y1="516.5" y2="516.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="112" x="456.5" y="531.1348">:: &#x53EF;&#x4EE3;&#x7406;&#x4E00;&#x500B; Widget ::</text><line style="stroke: #383838; stroke-width: 1.0;" x1="451.5" x2="727.5" y1="537.4551" y2="537.4551"/><line style="stroke: #383838; stroke-width: 1.0;" x1="451.5" x2="727.5" y1="539.4551" y2="539.4551"/><ellipse cx="461.5" cy="548.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="252" x="470.5" y="552.0898">ProxyWidget({Key key, @required Widget child})</text><line style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 1.0,2.0;" x1="451.5" x2="727.5" y1="558.4102" y2="558.4102"/><ellipse cx="461.5" cy="569.4102" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="79" x="470.5" y="573.0449">child &#x2192; Widget</text><!--MD5=[3e631f35fd4c22c3bd0e5fd03f797b2d]
-class InheritedWidget--><rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="215.4609" id="InheritedWidget" style="stroke: #383838; stroke-width: 1.5;" width="237" x="63.5" y="424.5"/><ellipse cx="132.75" cy="440.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;"/><path d="M132.8633,436.0981 L131.7095,441.1699 L134.0254,441.1699 Z M131.3691,433.8569 L134.3657,433.8569 L137.7109,446.25 L135.2622,446.25 L134.4985,443.187 L131.2197,443.187 L130.4727,446.25 L128.0239,446.25 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="90" x="153.25" y="445.0352">InheritedWidget</text><line style="stroke: #383838; stroke-width: 1.5;" x1="64.5" x2="299.5" y1="456.5" y2="456.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="95" x="69.5" y="471.1348">:: &#x53EF;&#x5F80;&#x4E0B;&#x50B3;&#x64AD;&#x8CC7;&#x8A0A; ::</text><line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="299.5" y1="477.4551" y2="477.4551"/><line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="299.5" y1="479.4551" y2="479.4551"/><ellipse cx="74.5" cy="488.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="211" x="83.5" y="492.0898">InheritedWidget({Key key, Widget child})</text><line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="299.5" y1="498.4102" y2="498.4102"/><line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="299.5" y1="500.4102" y2="500.4102"/><ellipse cx="74.5" cy="509.4102" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="190" x="83.5" y="513.0449">createElement() &#x2192; InheritedElement</text><ellipse cx="74.5" cy="522.3652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="110" x="83.5" y="526">updateShouldNotify(</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="193" x="95.5" y="538.9551">covariant InheritedWidget oldWidget</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="45" x="83.5" y="551.9102">) &#x2192; bool</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="71.5" y="575.1855"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="41" x="83.5" y="581.8203">Actions</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="71.5" y="588.1406"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="88" x="83.5" y="594.7754">ButtonBarTheme</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="71.5" y="601.0957"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="105" x="83.5" y="607.7305">ScrollConfiguration</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="71.5" y="614.0508"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="64" x="83.5" y="620.6855">MediaQuery</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="71.5" y="627.0059"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9" x="83.5" y="633.6406">...</text><line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="145.5" y1="564.708" y2="564.708"/><line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="145.5" y1="566.708" y2="566.708"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="145.5" y="568.3652">Implementers</text><line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="299.5" y1="564.708" y2="564.708"/><line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="299.5" y1="566.708" y2="566.708"/><!--MD5=[ac8a76ef2e94facfe4155995ab16aa14]
-class ParentDataWidget--><rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="293.1914" id="ParentDataWidget" style="stroke: #383838; stroke-width: 1.5;" width="352" x="6" y="674.5"/><ellipse cx="35.4" cy="690.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;"/><path d="M35.5133,686.0981 L34.3595,691.1699 L36.6754,691.1699 Z M34.0191,683.8569 L37.0157,683.8569 L40.3609,696.25 L37.9122,696.25 L37.1485,693.187 L33.8697,693.187 L33.1227,696.25 L30.6739,696.25 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="103" x="52.6" y="695.0352">ParentDataWidget</text><rect fill="#FFFFFF" height="16.1328" style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" width="183" x="178" y="671.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="181" x="179" y="684.1016">T extends RenderObjectWidget</text><line style="stroke: #383838; stroke-width: 1.5;" x1="7" x2="357" y1="706.5" y2="706.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="279" x="12" y="721.1348">:: &#x53EF; hook ParentData &#x7D66;&#x4E0B;&#x9762;&#x7684; RenderObjectWidget ::</text><line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="357" y1="727.4551" y2="727.4551"/><line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="357" y1="729.4551" y2="729.4551"/><ellipse cx="17" cy="738.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="221" x="26" y="742.0898">ParentDataWidget({Key key, Widget child})</text><line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="357" y1="748.4102" y2="748.4102"/><line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="357" y1="750.4102" y2="750.4102"/><ellipse cx="17" cy="759.4102" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="282" x="26" y="763.0449">applyParentData(RenderObject renderObject) &#x2192; void</text><ellipse cx="17" cy="772.3652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="225" x="26" y="776">createElement() &#x2192; ParentDataElement&lt;T&gt;</text><ellipse cx="17" cy="785.3203" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="194" x="26" y="788.9551">debugCanApplyOutOfTurn() &#x2192; bool</text><ellipse cx="17" cy="798.2754" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="204" x="26" y="801.9102">debugDescribeInvalidAncestorChain({</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="99" x="38" y="814.8652">String description,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="184" x="38" y="827.8203">DiagnosticsNode ownershipChain,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="38" y="840.7754">bool foundValidAncestor,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="172" x="38" y="853.7305">Iterable&lt;Widget&gt; badAncestors</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="174" x="26" y="866.6855">}) &#x2192; Iterable&lt;DiagnosticsNode&gt;</text><ellipse cx="17" cy="876.0059" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="326" x="26" y="879.6406">debugIsValidAncestor(RenderObjectWidget ancestor) &#x2192; bool</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="14" y="902.916"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="41" x="26" y="909.5508">Flexible</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="14" y="915.8711"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="26" y="922.5059">KeepAlive</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="14" y="928.8262"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="46" x="26" y="935.4609">LayoutId</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="14" y="941.7813"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="56" x="26" y="948.416">Positioned</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="14" y="954.7363"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="49" x="26" y="961.3711">TableCell</text><line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="145.5" y1="892.4385" y2="892.4385"/><line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="145.5" y1="894.4385" y2="894.4385"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="145.5" y="896.0957">Implementers</text><line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="357" y1="892.4385" y2="892.4385"/><line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="357" y1="894.4385" y2="894.4385"/><!--MD5=[1f1bf6eaa4def8d2e5909cf4ea0a6cd8]
-class PreferredSizeWidget--><rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="163.6406" id="PreferredSizeWidget" style="stroke: #383838; stroke-width: 1.5;" width="204" x="487.5" y="615"/><ellipse cx="527.25" cy="631" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;"/><path d="M527.3633,626.5981 L526.2095,631.6699 L528.5254,631.6699 Z M525.8691,624.3569 L528.8657,624.3569 L532.2109,636.75 L529.7622,636.75 L528.9985,633.687 L525.7197,633.687 L524.9727,636.75 L522.5239,636.75 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="117" x="546.75" y="635.5352">PreferredSizeWidget</text><line style="stroke: #383838; stroke-width: 1.5;" x1="488.5" x2="690.5" y1="647" y2="647"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="192" x="493.5" y="661.6348">:: &#x5982;&#x7121;&#x9650;&#x5236;&#xFF0C;&#x53EF;&#x6307;&#x5B9A; Widget &#x671F;&#x671B;&#x5C3A;&#x5BF8; ::</text><line style="stroke: #383838; stroke-width: 1.0;" x1="488.5" x2="690.5" y1="667.9551" y2="667.9551"/><line style="stroke: #383838; stroke-width: 1.0;" x1="488.5" x2="690.5" y1="669.9551" y2="669.9551"/><ellipse cx="498.5" cy="678.9551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="115" x="507.5" y="682.5898">PreferredSizeWidget()</text><line style="stroke: #383838; stroke-width: 1.0;" x1="488.5" x2="690.5" y1="688.9102" y2="688.9102"/><ellipse cx="498.5" cy="699.9102" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="110" x="507.5" y="703.5449">preferredSize &#x2192; Size</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="495.5" y="726.8203"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="39" x="507.5" y="733.4551">AppBar</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="495.5" y="739.7754"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="71" x="507.5" y="746.4102">PreferredSize</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="495.5" y="752.7305"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="37" x="507.5" y="759.3652">TabBar</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="495.5" y="765.6855"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9" x="507.5" y="772.3203">...</text><line style="stroke: #383838; stroke-width: 1.0;" x1="488.5" x2="553" y1="716.3428" y2="716.3428"/><line style="stroke: #383838; stroke-width: 1.0;" x1="488.5" x2="553" y1="718.3428" y2="718.3428"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="553" y="720">Implementers</text><line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="690.5" y1="716.3428" y2="716.3428"/><line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="690.5" y1="718.3428" y2="718.3428"/><!--MD5=[089dc3e67100ed4d497fe4cec0bffe8a]
-class RenderObjectWidget--><rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="280.2363" id="RenderObjectWidget" style="stroke: #383838; stroke-width: 1.5;" width="343" x="418" y="814"/><ellipse cx="525.75" cy="830" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;"/><path d="M525.8633,825.5981 L524.7095,830.6699 L527.0254,830.6699 Z M524.3691,823.3569 L527.3657,823.3569 L530.7109,835.75 L528.2622,835.75 L527.4985,832.687 L524.2197,832.687 L523.4727,835.75 L521.0239,835.75 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="119" x="546.25" y="834.5352">RenderObjectWidget</text><line style="stroke: #383838; stroke-width: 1.5;" x1="419" x2="760" y1="846" y2="846"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="180" x="424" y="860.6348">:: &#x7528;&#x4F86;&#x8A2D;&#x5B9A; RenderObjectElement ::</text><line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="760" y1="866.9551" y2="866.9551"/><line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="760" y1="868.9551" y2="868.9551"/><ellipse cx="429" cy="877.9551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="165" x="438" y="881.5898">RenderObjectWidget({Key key})</text><line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="760" y1="887.9102" y2="887.9102"/><line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="760" y1="889.9102" y2="889.9102"/><ellipse cx="429" cy="898.9102" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="215" x="438" y="902.5449">createElement() &#x2192; RenderObjectElement</text><ellipse cx="429" cy="911.8652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="317" x="438" y="915.5">createRenderObject(BuildContext context) &#x2192; RenderObject</text><ellipse cx="429" cy="924.8203" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="144" x="438" y="928.4551">didUnmountRenderObject(</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="200" x="450" y="941.4102">covariant RenderObject renderObject</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="438" y="954.3652">) &#x2192; void</text><ellipse cx="429" cy="963.6855" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="114" x="438" y="967.3203">updateRenderObject(</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="116" x="450" y="980.2754">BuildContext context,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="200" x="450" y="993.2305">covariant RenderObject renderObject</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="438" y="1006.1855">) &#x2192; void</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="426" y="1029.4609"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="139" x="438" y="1036.0957">ConstrainedLayoutBuilder</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="426" y="1042.416"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="169" x="438" y="1049.0508">SingleChildRenderObjectWidget</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="426" y="1055.3711"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="140" x="438" y="1062.0059">SliverWithKeepAliveWidget</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="426" y="1068.3262"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="29" x="438" y="1074.9609">Table</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="426" y="1081.2813"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9" x="438" y="1087.916">...</text><line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="553" y1="1018.9834" y2="1018.9834"/><line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="553" y1="1020.9834" y2="1020.9834"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="553" y="1022.6406">Implementers</text><line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="760" y1="1018.9834" y2="1018.9834"/><line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="760" y1="1020.9834" y2="1020.9834"/><!--MD5=[60d6b92408f98aed8df94d5c6e04aa63]
-class State--><rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="306.1465" id="State" style="stroke: #383838; stroke-width: 1.5;" width="281" x="41.5" y="83"/><ellipse cx="90.25" cy="99" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;"/><path d="M90.3633,94.5981 L89.2095,99.6699 L91.5254,99.6699 Z M88.8691,92.3569 L91.8657,92.3569 L95.2109,104.75 L92.7622,104.75 L91.9985,101.687 L88.7197,101.687 L87.9727,104.75 L85.5239,104.75 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="28" x="110.75" y="103.5352">State</text><rect fill="#FFFFFF" height="16.1328" style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" width="145" x="180.5" y="80"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="143" x="181.5" y="92.6016">T extends StatefulWidget</text><line style="stroke: #383838; stroke-width: 1.5;" x1="42.5" x2="321.5" y1="115" y2="115"/><ellipse cx="52.5" cy="126" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="34" x="61.5" y="129.6348">State()</text><line style="stroke: #383838; stroke-width: 1.0;" x1="42.5" x2="321.5" y1="135.9551" y2="135.9551"/><ellipse cx="52.5" cy="146.9551" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="61.5" y="150.5898">context &#x2192; BuildContext</text><ellipse cx="52.5" cy="159.9102" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="89" x="61.5" y="163.5449">mounted &#x2192; bool</text><ellipse cx="52.5" cy="172.8652" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="59" x="61.5" y="176.5">widget &#x2192; T</text><line style="stroke: #383838; stroke-width: 1.0;" x1="42.5" x2="321.5" y1="182.8203" y2="182.8203"/><line style="stroke: #383838; stroke-width: 1.0;" x1="42.5" x2="321.5" y1="184.8203" y2="184.8203"/><ellipse cx="52.5" cy="193.8203" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="209" x="61.5" y="197.4551">build(BuildContext context) &#x2192; Widget</text><ellipse cx="52.5" cy="206.7754" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="102" x="61.5" y="210.4102">deactivate() &#x2192; void</text><ellipse cx="52.5" cy="219.7305" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="108" x="61.5" y="223.3652">debugFillProperties(</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="208" x="73.5" y="236.3203">DiagnosticPropertiesBuilder properties</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="61.5" y="249.2754">) &#x2192; void</text><ellipse cx="52.5" cy="258.5957" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="181" x="61.5" y="262.2305">didChangeDependencies() &#x2192; void</text><ellipse cx="52.5" cy="271.5508" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="255" x="61.5" y="275.1855">didUpdateWidget(covariant T oldWidget) &#x2192; void</text><ellipse cx="52.5" cy="284.5059" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="90" x="61.5" y="288.1406">dispose() &#x2192; void</text><ellipse cx="52.5" cy="297.4609" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="97" x="61.5" y="301.0957">initState() &#x2192; void</text><ellipse cx="52.5" cy="310.416" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="109" x="61.5" y="314.0508">reassemble() &#x2192; void</text><ellipse cx="52.5" cy="323.3711" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="184" x="61.5" y="327.0059">setState(VoidCallback fn) &#x2192; void</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="49.5" y="350.2813"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="96" x="61.5" y="356.916">AnimatedListState</text><rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="49.5" y="363.2363"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="119" x="61.5" y="369.8711">DrawerControllerState</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9" x="61.5" y="382.8262">...</text><line style="stroke: #383838; stroke-width: 1.0;" x1="42.5" x2="145.5" y1="339.8037" y2="339.8037"/><line style="stroke: #383838; stroke-width: 1.0;" x1="42.5" x2="145.5" y1="341.8037" y2="341.8037"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="145.5" y="343.4609">Implementers</text><line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="321.5" y1="339.8037" y2="339.8037"/><line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="321.5" y1="341.8037" y2="341.8037"/><!--MD5=[6b023323949a801d1d02993c06d47290]
-link StatelessWidget to Widget--><path d="M707.31,181.58 C726.4,195.99 745.11,211.98 761,229 C808.63,280 849.85,345.48 880.97,402.51 " fill="none" id="StatelessWidget-&gt;Widget" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="none" points="887.23,399.37,890.5,420.31,874.89,405.98,887.23,399.37" style="stroke: #383838; stroke-width: 1.0;"/><!--MD5=[71c50360e7359447c39cd9e9deadb59f]
-link StatefulWidget to Widget--><path d="M707.88,409.27 C738.32,425.16 771.41,442.43 802.9,458.87 " fill="none" id="StatefulWidget-&gt;Widget" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="none" points="806.22,452.7,820.71,468.16,799.74,465.11,806.22,452.7" style="stroke: #383838; stroke-width: 1.0;"/><!--MD5=[9ef679c89cb831fe10940bd626e7d3fe]
-link ProxyWidget to Widget--><path d="M728.55,532 C752.26,532 776.93,532 800.74,532 " fill="none" id="ProxyWidget-&gt;Widget" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="none" points="800.94,525,820.94,532,800.94,539,800.94,525" style="stroke: #383838; stroke-width: 1.0;"/><!--MD5=[30df1d244da1b5b1681d3e97b3a70850]
-link InheritedWidget to ProxyWidget--><path d="M300.56,532 C340.94,532 386.83,532 429.92,532 " fill="none" id="InheritedWidget-&gt;ProxyWidget" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="none" points="430.15,525,450.15,532,430.15,539,430.15,525" style="stroke: #383838; stroke-width: 1.0;"/><!--MD5=[25e8fb69fadb2b3690f4d296e89dd9dd]
-link ParentDataWidget to ProxyWidget--><path d="M340.17,674.17 C346.21,668.39 352.17,662.65 358,657 C385.1,630.77 386.35,617.5 418,597 C422.66,593.98 427.47,591.08 432.41,588.27 " fill="none" id="ParentDataWidget-&gt;ProxyWidget" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="none" points="429.18,582.06,450.13,578.89,435.73,594.44,429.18,582.06" style="stroke: #383838; stroke-width: 1.0;"/><!--MD5=[2d741b11711b10077b3f911ecdc0f468]
-link PreferredSizeWidget to Widget--><path d="M691.51,649.72 C726.05,633.55 765.33,615.16 802.42,597.8 " fill="none" id="PreferredSizeWidget-&gt;Widget" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="none" points="799.62,591.38,820.71,589.24,805.56,604.06,799.62,591.38" style="stroke: #383838; stroke-width: 1.0;"/><!--MD5=[dd89818a2e080e5b4d266cc48de5acc8]
-link RenderObjectWidget to Widget--><path d="M745,813.84 C750.49,807.91 755.85,801.95 761,796 C797.27,754.11 832.84,704.88 862.79,660.36 " fill="none" id="RenderObjectWidget-&gt;Widget" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="none" points="857.07,656.32,873.98,643.55,868.72,664.08,857.07,656.32" style="stroke: #383838; stroke-width: 1.0;"/><!--MD5=[68ebf477cb17da37cf6a0dde5977f347]
-link State to StatefulWidget--><path d="M334.1177,277.732 C334.1177,277.732 459.7023,312.428 459.7023,312.428 " fill="none" id="State-StatefulWidget" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="#383838" points="471.27,315.62,466.5502,310.1681,459.7023,312.428,464.4222,317.8799,471.27,315.62" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="#383838" points="322.55,274.54,327.2698,279.9919,334.1177,277.732,329.3978,272.2801,322.55,274.54" style="stroke: #383838; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="330.4551" y="289.6307">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="455.4396" y="326.6203">1</text><!--MD5=[193ff32f63e3a27db00080f6dbe3e0db]
+    pre[data-line] .line-highlight[data-end]:after {
+      content: attr(data-end);
+      top: auto;
+      bottom: .4em;
+    }
+
+    html body {
+      font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow: initial;
+      box-sizing: border-box;
+      word-wrap: break-word
+    }
+
+    html body>:first-child {
+      margin-top: 0
+    }
+
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5,
+    html body h6 {
+      line-height: 1.2;
+      margin-top: 1em;
+      margin-bottom: 16px;
+      color: #000
+    }
+
+    html body h1 {
+      font-size: 2.25em;
+      font-weight: 300;
+      padding-bottom: .3em
+    }
+
+    html body h2 {
+      font-size: 1.75em;
+      font-weight: 400;
+      padding-bottom: .3em
+    }
+
+    html body h3 {
+      font-size: 1.5em;
+      font-weight: 500
+    }
+
+    html body h4 {
+      font-size: 1.25em;
+      font-weight: 600
+    }
+
+    html body h5 {
+      font-size: 1.1em;
+      font-weight: 600
+    }
+
+    html body h6 {
+      font-size: 1em;
+      font-weight: 600
+    }
+
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5 {
+      font-weight: 600
+    }
+
+    html body h5 {
+      font-size: 1em
+    }
+
+    html body h6 {
+      color: #5c5c5c
+    }
+
+    html body strong {
+      color: #000
+    }
+
+    html body del {
+      color: #5c5c5c
+    }
+
+    html body a:not([href]) {
+      color: inherit;
+      text-decoration: none
+    }
+
+    html body a {
+      color: #08c;
+      text-decoration: none
+    }
+
+    html body a:hover {
+      color: #00a3f5;
+      text-decoration: none
+    }
+
+    html body img {
+      max-width: 100%
+    }
+
+    html body>p {
+      margin-top: 0;
+      margin-bottom: 16px;
+      word-wrap: break-word
+    }
+
+    html body>ul,
+    html body>ol {
+      margin-bottom: 16px
+    }
+
+    html body ul,
+    html body ol {
+      padding-left: 2em
+    }
+
+    html body ul.no-list,
+    html body ol.no-list {
+      padding: 0;
+      list-style-type: none
+    }
+
+    html body ul ul,
+    html body ul ol,
+    html body ol ol,
+    html body ol ul {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    html body li {
+      margin-bottom: 0
+    }
+
+    html body li.task-list-item {
+      list-style: none
+    }
+
+    html body li>p {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    html body .task-list-item-checkbox {
+      margin: 0 .2em .25em -1.8em;
+      vertical-align: middle
+    }
+
+    html body .task-list-item-checkbox:hover {
+      cursor: pointer
+    }
+
+    html body blockquote {
+      margin: 16px 0;
+      font-size: inherit;
+      padding: 0 15px;
+      color: #5c5c5c;
+      border-left: 4px solid #d6d6d6
+    }
+
+    html body blockquote>:first-child {
+      margin-top: 0
+    }
+
+    html body blockquote>:last-child {
+      margin-bottom: 0
+    }
+
+    html body hr {
+      height: 4px;
+      margin: 32px 0;
+      background-color: #d6d6d6;
+      border: 0 none
+    }
+
+    html body table {
+      margin: 10px 0 15px 0;
+      border-collapse: collapse;
+      border-spacing: 0;
+      display: block;
+      width: 100%;
+      overflow: auto;
+      word-break: normal;
+      word-break: keep-all
+    }
+
+    html body table th {
+      font-weight: bold;
+      color: #000
+    }
+
+    html body table td,
+    html body table th {
+      border: 1px solid #d6d6d6;
+      padding: 6px 13px
+    }
+
+    html body dl {
+      padding: 0
+    }
+
+    html body dl dt {
+      padding: 0;
+      margin-top: 16px;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: bold
+    }
+
+    html body dl dd {
+      padding: 0 16px;
+      margin-bottom: 16px
+    }
+
+    html body code {
+      font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+      font-size: .85em !important;
+      color: #000;
+      background-color: #f0f0f0;
+      border-radius: 3px;
+      padding: .2em 0
+    }
+
+    html body code::before,
+    html body code::after {
+      letter-spacing: -0.2em;
+      content: "\00a0"
+    }
+
+    html body pre>code {
+      padding: 0;
+      margin: 0;
+      font-size: .85em !important;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0
+    }
+
+    html body .highlight {
+      margin-bottom: 16px
+    }
+
+    html body .highlight pre,
+    html body pre {
+      padding: 1em;
+      overflow: auto;
+      font-size: .85em !important;
+      line-height: 1.45;
+      border: #d6d6d6;
+      border-radius: 3px
+    }
+
+    html body .highlight pre {
+      margin-bottom: 0;
+      word-break: normal
+    }
+
+    html body pre code,
+    html body pre tt {
+      display: inline;
+      max-width: initial;
+      padding: 0;
+      margin: 0;
+      overflow: initial;
+      line-height: inherit;
+      word-wrap: normal;
+      background-color: transparent;
+      border: 0
+    }
+
+    html body pre code:before,
+    html body pre tt:before,
+    html body pre code:after,
+    html body pre tt:after {
+      content: normal
+    }
+
+    html body p,
+    html body blockquote,
+    html body ul,
+    html body ol,
+    html body dl,
+    html body pre {
+      margin-top: 0;
+      margin-bottom: 16px
+    }
+
+    html body kbd {
+      color: #000;
+      border: 1px solid #d6d6d6;
+      border-bottom: 2px solid #c7c7c7;
+      padding: 2px 4px;
+      background-color: #f0f0f0;
+      border-radius: 3px
+    }
+
+    @media print {
+      html body {
+        background-color: #fff
+      }
+
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5,
+      html body h6 {
+        color: #000;
+        page-break-after: avoid
+      }
+
+      html body blockquote {
+        color: #5c5c5c
+      }
+
+      html body pre {
+        page-break-inside: avoid
+      }
+
+      html body table {
+        display: table
+      }
+
+      html body img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%
+      }
+
+      html body pre,
+      html body code {
+        word-wrap: break-word;
+        white-space: pre
+      }
+    }
+
+    .markdown-preview {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box
+    }
+
+    .markdown-preview .pagebreak,
+    .markdown-preview .newpage {
+      page-break-before: always
+    }
+
+    .markdown-preview pre.line-numbers {
+      position: relative;
+      padding-left: 3.8em;
+      counter-reset: linenumber
+    }
+
+    .markdown-preview pre.line-numbers>code {
+      position: relative
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows {
+      position: absolute;
+      pointer-events: none;
+      top: 1em;
+      font-size: 100%;
+      left: 0;
+      width: 3em;
+      letter-spacing: -1px;
+      border-right: 1px solid #999;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows>span {
+      pointer-events: none;
+      display: block;
+      counter-increment: linenumber
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows>span:before {
+      content: counter(linenumber);
+      color: #999;
+      display: block;
+      padding-right: .8em;
+      text-align: right
+    }
+
+    .markdown-preview .mathjax-exps .MathJax_Display {
+      text-align: center !important
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .btn-group {
+      display: none
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .status {
+      display: none
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .output-div {
+      margin-bottom: 16px
+    }
+
+    .scrollbar-style::-webkit-scrollbar {
+      width: 8px
+    }
+
+    .scrollbar-style::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent
+    }
+
+    .scrollbar-style::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.66);
+      border: 4px solid rgba(150, 150, 150, 0.66);
+      background-clip: content-box
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      overflow: auto
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+      position: relative;
+      top: 0
+    }
+
+    @media screen and (min-width:914px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        padding: 2em calc(50% - 457px + 2em)
+      }
+    }
+
+    @media screen and (max-width:914px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        padding: 2em
+      }
+    }
+
+    @media screen and (max-width:450px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        font-size: 14px !important;
+        padding: 1em
+      }
+    }
+
+    @media print {
+      html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+        display: none
+      }
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+      position: fixed;
+      bottom: 8px;
+      left: 8px;
+      font-size: 28px;
+      cursor: pointer;
+      color: inherit;
+      z-index: 99;
+      width: 32px;
+      text-align: center;
+      opacity: .4
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn {
+      opacity: 1
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100%;
+      padding: 32px 0 48px 0;
+      font-size: 14px;
+      box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
+      box-sizing: border-box;
+      overflow: auto;
+      background-color: inherit
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar {
+      width: 8px
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.66);
+      border: 4px solid rgba(150, 150, 150, 0.66);
+      background-clip: content-box
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a {
+      text-decoration: none
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+      padding: 0 1.6em;
+      margin-top: .8em
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li {
+      margin-bottom: .8em
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+      list-style-type: none
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+      left: 300px;
+      width: calc(100% - 300px);
+      padding: 2em calc(50% - 457px - 150px);
+      margin: 0;
+      box-sizing: border-box
+    }
+
+    @media screen and (max-width:1274px) {
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        padding: 2em
+      }
+    }
+
+    @media screen and (max-width:450px) {
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        width: 100%
+      }
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview {
+      left: 50%;
+      transform: translateX(-50%)
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc {
+      display: none
+    }
+
+    /* Please visit the URL below for more information: */
+    /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+  </style>
+</head>
+
+<body for="html-export">
+  <div class="mume markdown-preview  ">
+    <p>
+      <!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg"
+        xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css"
+        height="1105px" preserveAspectRatio="none" style="width:1078px;height:1105px;" version="1.1"
+        viewBox="0 0 1078 1105" width="1078px" zoomAndPan="magnify">
+        <defs>
+          <filter height="300%" id="foojg3ng0iidc" width="300%" x="-1" y="-1">
+            <feGaussianBlur result="blurOut" stdDeviation="2.0" />
+            <feColorMatrix in="blurOut" result="blurOut2" type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0" />
+            <feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3" />
+            <feBlend in="SourceGraphic" in2="blurOut3" mode="normal" />
+          </filter>
+        </defs>
+        <g>
+          <!--MD5=[e9dc9881b850c1e2d2a8f30edb40e840]
+class Widget-->
+          <rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="223.4609" id="Widget"
+            style="stroke: #383838; stroke-width: 1.5;" width="246" x="821" y="420.5" />
+          <ellipse cx="920.25" cy="436.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;" />
+          <path
+            d="M920.3633,432.0981 L919.2095,437.1699 L921.5254,437.1699 Z M918.8691,429.8569 L921.8657,429.8569 L925.2109,442.25 L922.7622,442.25 L921.9985,439.187 L918.7197,439.187 L917.9727,442.25 L915.5239,442.25 Z " />
+          <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic"
+            lengthAdjust="spacingAndGlyphs" textLength="39" x="940.75" y="441.0352">Widget</text>
+          <line style="stroke: #383838; stroke-width: 1.5;" x1="822" x2="1066" y1="452.5" y2="452.5" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="110"
+            x="827" y="467.1348">:: &#x63CF;&#x8FF0; Element &#x8A2D;&#x5B9A; ::</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="1066" y1="473.4551" y2="473.4551" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="1066" y1="475.4551" y2="475.4551" />
+          <ellipse cx="832" cy="484.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="92"
+            x="841" y="488.0898">Widget({Key key})</text>
+          <line style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 1.0,2.0;" x1="822" x2="1066" y1="494.4102"
+            y2="494.4102" />
+          <ellipse cx="832" cy="505.4102" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="40"
+            x="841" y="509.0449">Key key</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="1066" y1="515.3652" y2="515.3652" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="1066" y1="517.3652" y2="517.3652" />
+          <ellipse cx="832" cy="526.3652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="142"
+            x="841" y="530">createElement() &#x2192; Element</text>
+          <ellipse cx="832" cy="539.3203" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="108"
+            x="841" y="542.9551">debugFillProperties(</text><text fill="#000000" font-family="sans-serif" font-size="11"
+            lengthAdjust="spacingAndGlyphs" textLength="208" x="853" y="555.9102">DiagnosticPropertiesBuilder
+            properties</text><text fill="#000000" font-family="sans-serif" font-size="11"
+            lengthAdjust="spacingAndGlyphs" textLength="44" x="841" y="568.8652">) &#x2192; void</text>
+          <ellipse cx="832" cy="578.1855" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="129"
+            x="841" y="581.8203">toStringShort() &#x2192; String</text>
+          <ellipse cx="832" cy="608.0957" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="61"
+            x="841" y="611.7305">canUpdate(</text><text fill="#000000" font-family="sans-serif" font-size="11"
+            lengthAdjust="spacingAndGlyphs" textLength="194" x="853" y="624.6855">Widget oldWidget, Widget
+            newWidget</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs"
+            textLength="45" x="841" y="637.6406">) &#x2192; bool</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="929.5" y1="594.6182" y2="594.6182" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="822" x2="929.5" y1="596.6182" y2="596.6182" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="29"
+            x="929.5" y="598.2754">Static</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="958.5" x2="1066" y1="594.6182" y2="594.6182" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="958.5" x2="1066" y1="596.6182" y2="596.6182" />
+          <!--MD5=[c0bbeea4f22081f7ba4cc23736e716f1]
+class StatelessWidget-->
+          <rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="202.5059" id="StatelessWidget"
+            style="stroke: #383838; stroke-width: 1.5;" width="235" x="472" y="8.5" />
+          <ellipse cx="540.75" cy="24.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;" />
+          <path
+            d="M540.8633,20.0981 L539.7095,25.1699 L542.0254,25.1699 Z M539.3691,17.8569 L542.3657,17.8569 L545.7109,30.25 L543.2622,30.25 L542.4985,27.187 L539.2197,27.187 L538.4727,30.25 L536.0239,30.25 Z " />
+          <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic"
+            lengthAdjust="spacingAndGlyphs" textLength="89" x="561.25" y="29.0352">StatelessWidget</text>
+          <line style="stroke: #383838; stroke-width: 1.5;" x1="473" x2="706" y1="40.5" y2="40.5" /><text fill="#000000"
+            font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="478"
+            y="55.1348">:: &#x7121;&#x53EF;&#x8B8A;&#x72C0;&#x614B; ::</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="706" y1="61.4551" y2="61.4551" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="706" y1="63.4551" y2="63.4551" />
+          <ellipse cx="483" cy="72.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="139"
+            x="492" y="76.0898">StatelessWidget({Key key})</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="706" y1="82.4102" y2="82.4102" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="706" y1="84.4102" y2="84.4102" />
+          <ellipse cx="483" cy="93.4102" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold"
+            lengthAdjust="spacingAndGlyphs" textLength="209" x="492" y="97.0449">build(BuildContext context) &#x2192;
+            Widget</text>
+          <ellipse cx="483" cy="106.3652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="189"
+            x="492" y="110">createElement() &#x2192; StatelessElement</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="133.2754" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="67"
+            x="492" y="139.9102">AboutDialog</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="146.2305" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="60"
+            x="492" y="152.8652">AlertDialog</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="159.1855" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="24"
+            x="492" y="165.8203">Text</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="172.1406" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36"
+            x="492" y="178.7754">Theme</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="185.0957" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="23"
+            x="492" y="191.7305">Title</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="480" y="198.0508" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9"
+            x="492" y="204.6855">...</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="553" y1="122.7979" y2="122.7979" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="473" x2="553" y1="124.7979" y2="124.7979" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73"
+            x="553" y="126.4551">Implementers</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="706" y1="122.7979" y2="122.7979" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="706" y1="124.7979" y2="124.7979" />
+          <!--MD5=[1b217b79be856388b7827a34a8d95d7e]
+class StatefulWidget-->
+          <rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="202.5059" id="StatefulWidget"
+            style="stroke: #383838; stroke-width: 1.5;" width="236" x="471.5" y="246.5" />
+          <ellipse cx="544.75" cy="262.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;" />
+          <path
+            d="M544.8633,258.0981 L543.7095,263.1699 L546.0254,263.1699 Z M543.3691,255.8569 L546.3657,255.8569 L549.7109,268.25 L547.2622,268.25 L546.4985,265.187 L543.2197,265.187 L542.4727,268.25 L540.0239,268.25 Z " />
+          <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic"
+            lengthAdjust="spacingAndGlyphs" textLength="81" x="565.25" y="267.0352">StatefulWidget</text>
+          <line style="stroke: #383838; stroke-width: 1.5;" x1="472.5" x2="706.5" y1="278.5" y2="278.5" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="84"
+            x="477.5" y="293.1348">:: &#x5177;&#x6709;&#x53EF;&#x8B8A;&#x72C0;&#x614B; ::</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="472.5" x2="706.5" y1="299.4551" y2="299.4551" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="472.5" x2="706.5" y1="301.4551" y2="301.4551" />
+          <ellipse cx="482.5" cy="310.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="132"
+            x="491.5" y="314.0898">StatefulWidget({Key key})</text>
+          <line style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 1.0,2.0;" x1="472.5" x2="706.5"
+            y1="320.4102" y2="320.4102" />
+          <ellipse cx="482.5" cy="331.4102" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="182"
+            x="491.5" y="335.0449">createElement() &#x2192; StatefulElement</text>
+          <ellipse cx="482.5" cy="344.3652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold"
+            lengthAdjust="spacingAndGlyphs" textLength="210" x="491.5" y="348">createState() &#x2192;
+            State&lt;StatefulWidget&gt;</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="371.2754" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="70"
+            x="491.5" y="377.9102">AnimatedList</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="384.2305" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="87"
+            x="491.5" y="390.8652">AnimatedWidget</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="397.1855" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="39"
+            x="491.5" y="403.8203">AppBar</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="410.1406" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="76"
+            x="491.5" y="416.7754">CupertinoApp</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="423.0957" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="89"
+            x="491.5" y="429.7305">CupertinoButton</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="479.5" y="436.0508" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9"
+            x="491.5" y="442.6855">...</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="472.5" x2="553" y1="360.7979" y2="360.7979" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="472.5" x2="553" y1="362.7979" y2="362.7979" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73"
+            x="553" y="364.4551">Implementers</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="706.5" y1="360.7979" y2="360.7979" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="706.5" y1="362.7979" y2="362.7979" />
+          <!--MD5=[50490a11d69e361743dab0fb378d8b95]
+class ProxyWidget-->
+          <rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="94.8652" id="ProxyWidget"
+            style="stroke: #383838; stroke-width: 1.5;" width="278" x="450.5" y="484.5" />
+          <ellipse cx="549.75" cy="500.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;" />
+          <path
+            d="M549.8633,496.0981 L548.7095,501.1699 L551.0254,501.1699 Z M548.3691,493.8569 L551.3657,493.8569 L554.7109,506.25 L552.2622,506.25 L551.4985,503.187 L548.2197,503.187 L547.4727,506.25 L545.0239,506.25 Z " />
+          <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic"
+            lengthAdjust="spacingAndGlyphs" textLength="71" x="570.25" y="505.0352">ProxyWidget</text>
+          <line style="stroke: #383838; stroke-width: 1.5;" x1="451.5" x2="727.5" y1="516.5" y2="516.5" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="112"
+            x="456.5" y="531.1348">:: &#x53EF;&#x4EE3;&#x7406;&#x4E00;&#x500B; Widget ::</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="451.5" x2="727.5" y1="537.4551" y2="537.4551" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="451.5" x2="727.5" y1="539.4551" y2="539.4551" />
+          <ellipse cx="461.5" cy="548.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="252"
+            x="470.5" y="552.0898">ProxyWidget({Key key, @required Widget child})</text>
+          <line style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 1.0,2.0;" x1="451.5" x2="727.5"
+            y1="558.4102" y2="558.4102" />
+          <ellipse cx="461.5" cy="569.4102" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="79"
+            x="470.5" y="573.0449">child &#x2192; Widget</text>
+          <!--MD5=[3e631f35fd4c22c3bd0e5fd03f797b2d]
+class InheritedWidget-->
+          <rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="215.4609" id="InheritedWidget"
+            style="stroke: #383838; stroke-width: 1.5;" width="237" x="63.5" y="424.5" />
+          <ellipse cx="132.75" cy="440.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;" />
+          <path
+            d="M132.8633,436.0981 L131.7095,441.1699 L134.0254,441.1699 Z M131.3691,433.8569 L134.3657,433.8569 L137.7109,446.25 L135.2622,446.25 L134.4985,443.187 L131.2197,443.187 L130.4727,446.25 L128.0239,446.25 Z " />
+          <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic"
+            lengthAdjust="spacingAndGlyphs" textLength="90" x="153.25" y="445.0352">InheritedWidget</text>
+          <line style="stroke: #383838; stroke-width: 1.5;" x1="64.5" x2="299.5" y1="456.5" y2="456.5" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="95"
+            x="69.5" y="471.1348">:: &#x53EF;&#x5F80;&#x4E0B;&#x50B3;&#x64AD;&#x8CC7;&#x8A0A; ::</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="299.5" y1="477.4551" y2="477.4551" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="299.5" y1="479.4551" y2="479.4551" />
+          <ellipse cx="74.5" cy="488.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="211"
+            x="83.5" y="492.0898">InheritedWidget({Key key, Widget child})</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="299.5" y1="498.4102" y2="498.4102" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="299.5" y1="500.4102" y2="500.4102" />
+          <ellipse cx="74.5" cy="509.4102" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="190"
+            x="83.5" y="513.0449">createElement() &#x2192; InheritedElement</text>
+          <ellipse cx="74.5" cy="522.3652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="110"
+            x="83.5" y="526">updateShouldNotify(</text><text fill="#000000" font-family="sans-serif" font-size="11"
+            lengthAdjust="spacingAndGlyphs" textLength="193" x="95.5" y="538.9551">covariant InheritedWidget
+            oldWidget</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs"
+            textLength="45" x="83.5" y="551.9102">) &#x2192; bool</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="71.5" y="575.1855" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="41"
+            x="83.5" y="581.8203">Actions</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="71.5" y="588.1406" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="88"
+            x="83.5" y="594.7754">ButtonBarTheme</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="71.5" y="601.0957" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="105"
+            x="83.5" y="607.7305">ScrollConfiguration</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="71.5" y="614.0508" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="64"
+            x="83.5" y="620.6855">MediaQuery</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="71.5" y="627.0059" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9"
+            x="83.5" y="633.6406">...</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="145.5" y1="564.708" y2="564.708" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="64.5" x2="145.5" y1="566.708" y2="566.708" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73"
+            x="145.5" y="568.3652">Implementers</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="299.5" y1="564.708" y2="564.708" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="299.5" y1="566.708" y2="566.708" />
+          <!--MD5=[ac8a76ef2e94facfe4155995ab16aa14]
+class ParentDataWidget-->
+          <rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="293.1914" id="ParentDataWidget"
+            style="stroke: #383838; stroke-width: 1.5;" width="352" x="6" y="674.5" />
+          <ellipse cx="35.4" cy="690.5" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;" />
+          <path
+            d="M35.5133,686.0981 L34.3595,691.1699 L36.6754,691.1699 Z M34.0191,683.8569 L37.0157,683.8569 L40.3609,696.25 L37.9122,696.25 L37.1485,693.187 L33.8697,693.187 L33.1227,696.25 L30.6739,696.25 Z " />
+          <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic"
+            lengthAdjust="spacingAndGlyphs" textLength="103" x="52.6" y="695.0352">ParentDataWidget</text>
+          <rect fill="#FFFFFF" height="16.1328" style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;"
+            width="183" x="178" y="671.5" /><text fill="#000000" font-family="sans-serif" font-size="12"
+            font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="181" x="179" y="684.1016">T extends
+            RenderObjectWidget</text>
+          <line style="stroke: #383838; stroke-width: 1.5;" x1="7" x2="357" y1="706.5" y2="706.5" /><text fill="#000000"
+            font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="279" x="12"
+            y="721.1348">:: &#x53EF; hook ParentData &#x7D66;&#x4E0B;&#x9762;&#x7684; RenderObjectWidget ::</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="357" y1="727.4551" y2="727.4551" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="357" y1="729.4551" y2="729.4551" />
+          <ellipse cx="17" cy="738.4551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="221"
+            x="26" y="742.0898">ParentDataWidget({Key key, Widget child})</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="357" y1="748.4102" y2="748.4102" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="357" y1="750.4102" y2="750.4102" />
+          <ellipse cx="17" cy="759.4102" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="282"
+            x="26" y="763.0449">applyParentData(RenderObject renderObject) &#x2192; void</text>
+          <ellipse cx="17" cy="772.3652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="225"
+            x="26" y="776">createElement() &#x2192; ParentDataElement&lt;T&gt;</text>
+          <ellipse cx="17" cy="785.3203" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="194"
+            x="26" y="788.9551">debugCanApplyOutOfTurn() &#x2192; bool</text>
+          <ellipse cx="17" cy="798.2754" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="204"
+            x="26" y="801.9102">debugDescribeInvalidAncestorChain({</text><text fill="#000000" font-family="sans-serif"
+            font-size="11" lengthAdjust="spacingAndGlyphs" textLength="99" x="38" y="814.8652">String
+            description,</text><text fill="#000000" font-family="sans-serif" font-size="11"
+            lengthAdjust="spacingAndGlyphs" textLength="184" x="38" y="827.8203">DiagnosticsNode
+            ownershipChain,</text><text fill="#000000" font-family="sans-serif" font-size="11"
+            lengthAdjust="spacingAndGlyphs" textLength="137" x="38" y="840.7754">bool foundValidAncestor,</text><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="172"
+            x="38" y="853.7305">Iterable&lt;Widget&gt; badAncestors</text><text fill="#000000" font-family="sans-serif"
+            font-size="11" lengthAdjust="spacingAndGlyphs" textLength="174" x="26" y="866.6855">}) &#x2192;
+            Iterable&lt;DiagnosticsNode&gt;</text>
+          <ellipse cx="17" cy="876.0059" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="326"
+            x="26" y="879.6406">debugIsValidAncestor(RenderObjectWidget ancestor) &#x2192; bool</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="14" y="902.916" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="41"
+            x="26" y="909.5508">Flexible</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="14" y="915.8711" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52"
+            x="26" y="922.5059">KeepAlive</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="14" y="928.8262" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="46"
+            x="26" y="935.4609">LayoutId</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="14" y="941.7813" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="56"
+            x="26" y="948.416">Positioned</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="14" y="954.7363" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="49"
+            x="26" y="961.3711">TableCell</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="145.5" y1="892.4385" y2="892.4385" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="7" x2="145.5" y1="894.4385" y2="894.4385" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73"
+            x="145.5" y="896.0957">Implementers</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="357" y1="892.4385" y2="892.4385" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="357" y1="894.4385" y2="894.4385" />
+          <!--MD5=[1f1bf6eaa4def8d2e5909cf4ea0a6cd8]
+class PreferredSizeWidget-->
+          <rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="163.6406" id="PreferredSizeWidget"
+            style="stroke: #383838; stroke-width: 1.5;" width="204" x="487.5" y="615" />
+          <ellipse cx="527.25" cy="631" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;" />
+          <path
+            d="M527.3633,626.5981 L526.2095,631.6699 L528.5254,631.6699 Z M525.8691,624.3569 L528.8657,624.3569 L532.2109,636.75 L529.7622,636.75 L528.9985,633.687 L525.7197,633.687 L524.9727,636.75 L522.5239,636.75 Z " />
+          <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic"
+            lengthAdjust="spacingAndGlyphs" textLength="117" x="546.75" y="635.5352">PreferredSizeWidget</text>
+          <line style="stroke: #383838; stroke-width: 1.5;" x1="488.5" x2="690.5" y1="647" y2="647" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="192"
+            x="493.5" y="661.6348">:: &#x5982;&#x7121;&#x9650;&#x5236;&#xFF0C;&#x53EF;&#x6307;&#x5B9A; Widget
+            &#x671F;&#x671B;&#x5C3A;&#x5BF8; ::</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="488.5" x2="690.5" y1="667.9551" y2="667.9551" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="488.5" x2="690.5" y1="669.9551" y2="669.9551" />
+          <ellipse cx="498.5" cy="678.9551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="115"
+            x="507.5" y="682.5898">PreferredSizeWidget()</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="488.5" x2="690.5" y1="688.9102" y2="688.9102" />
+          <ellipse cx="498.5" cy="699.9102" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="110"
+            x="507.5" y="703.5449">preferredSize &#x2192; Size</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="495.5" y="726.8203" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="39"
+            x="507.5" y="733.4551">AppBar</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="495.5" y="739.7754" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="71"
+            x="507.5" y="746.4102">PreferredSize</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="495.5" y="752.7305" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="37"
+            x="507.5" y="759.3652">TabBar</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="495.5" y="765.6855" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9"
+            x="507.5" y="772.3203">...</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="488.5" x2="553" y1="716.3428" y2="716.3428" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="488.5" x2="553" y1="718.3428" y2="718.3428" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73"
+            x="553" y="720">Implementers</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="690.5" y1="716.3428" y2="716.3428" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="690.5" y1="718.3428" y2="718.3428" />
+          <!--MD5=[089dc3e67100ed4d497fe4cec0bffe8a]
+class RenderObjectWidget-->
+          <rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="280.2363" id="RenderObjectWidget"
+            style="stroke: #383838; stroke-width: 1.5;" width="343" x="418" y="814" />
+          <ellipse cx="525.75" cy="830" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;" />
+          <path
+            d="M525.8633,825.5981 L524.7095,830.6699 L527.0254,830.6699 Z M524.3691,823.3569 L527.3657,823.3569 L530.7109,835.75 L528.2622,835.75 L527.4985,832.687 L524.2197,832.687 L523.4727,835.75 L521.0239,835.75 Z " />
+          <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic"
+            lengthAdjust="spacingAndGlyphs" textLength="119" x="546.25" y="834.5352">RenderObjectWidget</text>
+          <line style="stroke: #383838; stroke-width: 1.5;" x1="419" x2="760" y1="846" y2="846" /><text fill="#000000"
+            font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="180" x="424"
+            y="860.6348">:: &#x7528;&#x4F86;&#x8A2D;&#x5B9A; RenderObjectElement ::</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="760" y1="866.9551" y2="866.9551" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="760" y1="868.9551" y2="868.9551" />
+          <ellipse cx="429" cy="877.9551" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="165"
+            x="438" y="881.5898">RenderObjectWidget({Key key})</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="760" y1="887.9102" y2="887.9102" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="760" y1="889.9102" y2="889.9102" />
+          <ellipse cx="429" cy="898.9102" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="215"
+            x="438" y="902.5449">createElement() &#x2192; RenderObjectElement</text>
+          <ellipse cx="429" cy="911.8652" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="317"
+            x="438" y="915.5">createRenderObject(BuildContext context) &#x2192; RenderObject</text>
+          <ellipse cx="429" cy="924.8203" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="144"
+            x="438" y="928.4551">didUnmountRenderObject(</text><text fill="#000000" font-family="sans-serif"
+            font-size="11" lengthAdjust="spacingAndGlyphs" textLength="200" x="450" y="941.4102">covariant RenderObject
+            renderObject</text><text fill="#000000" font-family="sans-serif" font-size="11"
+            lengthAdjust="spacingAndGlyphs" textLength="44" x="438" y="954.3652">) &#x2192; void</text>
+          <ellipse cx="429" cy="963.6855" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="114"
+            x="438" y="967.3203">updateRenderObject(</text><text fill="#000000" font-family="sans-serif" font-size="11"
+            lengthAdjust="spacingAndGlyphs" textLength="116" x="450" y="980.2754">BuildContext context,</text><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="200"
+            x="450" y="993.2305">covariant RenderObject renderObject</text><text fill="#000000" font-family="sans-serif"
+            font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="438" y="1006.1855">) &#x2192; void</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="426" y="1029.4609" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="139"
+            x="438" y="1036.0957">ConstrainedLayoutBuilder</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="426" y="1042.416" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="169"
+            x="438" y="1049.0508">SingleChildRenderObjectWidget</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="426" y="1055.3711" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="140"
+            x="438" y="1062.0059">SliverWithKeepAliveWidget</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="426" y="1068.3262" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="29"
+            x="438" y="1074.9609">Table</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="426" y="1081.2813" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9"
+            x="438" y="1087.916">...</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="553" y1="1018.9834" y2="1018.9834" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="419" x2="553" y1="1020.9834" y2="1020.9834" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73"
+            x="553" y="1022.6406">Implementers</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="760" y1="1018.9834" y2="1018.9834" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="626" x2="760" y1="1020.9834" y2="1020.9834" />
+          <!--MD5=[60d6b92408f98aed8df94d5c6e04aa63]
+class State-->
+          <rect fill="#F8F8F8" filter="url(#foojg3ng0iidc)" height="306.1465" id="State"
+            style="stroke: #383838; stroke-width: 1.5;" width="281" x="41.5" y="83" />
+          <ellipse cx="90.25" cy="99" fill="#CDCDCD" rx="11" ry="11" style="stroke: #383838; stroke-width: 1.0;" />
+          <path
+            d="M90.3633,94.5981 L89.2095,99.6699 L91.5254,99.6699 Z M88.8691,92.3569 L91.8657,92.3569 L95.2109,104.75 L92.7622,104.75 L91.9985,101.687 L88.7197,101.687 L87.9727,104.75 L85.5239,104.75 Z " />
+          <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic"
+            lengthAdjust="spacingAndGlyphs" textLength="28" x="110.75" y="103.5352">State</text>
+          <rect fill="#FFFFFF" height="16.1328" style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;"
+            width="145" x="180.5" y="80" /><text fill="#000000" font-family="sans-serif" font-size="12"
+            font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="143" x="181.5" y="92.6016">T extends
+            StatefulWidget</text>
+          <line style="stroke: #383838; stroke-width: 1.5;" x1="42.5" x2="321.5" y1="115" y2="115" />
+          <ellipse cx="52.5" cy="126" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="34"
+            x="61.5" y="129.6348">State()</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="42.5" x2="321.5" y1="135.9551" y2="135.9551" />
+          <ellipse cx="52.5" cy="146.9551" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127"
+            x="61.5" y="150.5898">context &#x2192; BuildContext</text>
+          <ellipse cx="52.5" cy="159.9102" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="89"
+            x="61.5" y="163.5449">mounted &#x2192; bool</text>
+          <ellipse cx="52.5" cy="172.8652" fill="none" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="59"
+            x="61.5" y="176.5">widget &#x2192; T</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="42.5" x2="321.5" y1="182.8203" y2="182.8203" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="42.5" x2="321.5" y1="184.8203" y2="184.8203" />
+          <ellipse cx="52.5" cy="193.8203" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold"
+            lengthAdjust="spacingAndGlyphs" textLength="209" x="61.5" y="197.4551">build(BuildContext context) &#x2192;
+            Widget</text>
+          <ellipse cx="52.5" cy="206.7754" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="102"
+            x="61.5" y="210.4102">deactivate() &#x2192; void</text>
+          <ellipse cx="52.5" cy="219.7305" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="108"
+            x="61.5" y="223.3652">debugFillProperties(</text><text fill="#000000" font-family="sans-serif"
+            font-size="11" lengthAdjust="spacingAndGlyphs" textLength="208" x="73.5"
+            y="236.3203">DiagnosticPropertiesBuilder properties</text><text fill="#000000" font-family="sans-serif"
+            font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="61.5" y="249.2754">) &#x2192; void</text>
+          <ellipse cx="52.5" cy="258.5957" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="181"
+            x="61.5" y="262.2305">didChangeDependencies() &#x2192; void</text>
+          <ellipse cx="52.5" cy="271.5508" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="255"
+            x="61.5" y="275.1855">didUpdateWidget(covariant T oldWidget) &#x2192; void</text>
+          <ellipse cx="52.5" cy="284.5059" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="90"
+            x="61.5" y="288.1406">dispose() &#x2192; void</text>
+          <ellipse cx="52.5" cy="297.4609" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold"
+            lengthAdjust="spacingAndGlyphs" textLength="97" x="61.5" y="301.0957">initState() &#x2192; void</text>
+          <ellipse cx="52.5" cy="310.416" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="109"
+            x="61.5" y="314.0508">reassemble() &#x2192; void</text>
+          <ellipse cx="52.5" cy="323.3711" fill="#A6A6A6" rx="3" ry="3" style="stroke: #545454; stroke-width: 1.0;" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold"
+            lengthAdjust="spacingAndGlyphs" textLength="184" x="61.5" y="327.0059">setState(VoidCallback fn) &#x2192;
+            void</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="49.5" y="350.2813" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="96"
+            x="61.5" y="356.916">AnimatedListState</text>
+          <rect fill="none" height="6" style="stroke: #595959; stroke-width: 1.0;" width="6" x="49.5" y="363.2363" />
+          <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="119"
+            x="61.5" y="369.8711">DrawerControllerState</text><text fill="#000000" font-family="sans-serif"
+            font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9" x="61.5" y="382.8262">...</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="42.5" x2="145.5" y1="339.8037" y2="339.8037" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="42.5" x2="145.5" y1="341.8037" y2="341.8037" /><text
+            fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73"
+            x="145.5" y="343.4609">Implementers</text>
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="321.5" y1="339.8037" y2="339.8037" />
+          <line style="stroke: #383838; stroke-width: 1.0;" x1="218.5" x2="321.5" y1="341.8037" y2="341.8037" />
+          <!--MD5=[6b023323949a801d1d02993c06d47290]
+link StatelessWidget to Widget-->
+          <path d="M707.31,181.58 C726.4,195.99 745.11,211.98 761,229 C808.63,280 849.85,345.48 880.97,402.51 "
+            fill="none" id="StatelessWidget-&gt;Widget" style="stroke: #383838; stroke-width: 1.0;" />
+          <polygon fill="none" points="887.23,399.37,890.5,420.31,874.89,405.98,887.23,399.37"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <!--MD5=[71c50360e7359447c39cd9e9deadb59f]
+link StatefulWidget to Widget-->
+          <path d="M707.88,409.27 C738.32,425.16 771.41,442.43 802.9,458.87 " fill="none" id="StatefulWidget-&gt;Widget"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <polygon fill="none" points="806.22,452.7,820.71,468.16,799.74,465.11,806.22,452.7"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <!--MD5=[9ef679c89cb831fe10940bd626e7d3fe]
+link ProxyWidget to Widget-->
+          <path d="M728.55,532 C752.26,532 776.93,532 800.74,532 " fill="none" id="ProxyWidget-&gt;Widget"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <polygon fill="none" points="800.94,525,820.94,532,800.94,539,800.94,525"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <!--MD5=[30df1d244da1b5b1681d3e97b3a70850]
+link InheritedWidget to ProxyWidget-->
+          <path d="M300.56,532 C340.94,532 386.83,532 429.92,532 " fill="none" id="InheritedWidget-&gt;ProxyWidget"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <polygon fill="none" points="430.15,525,450.15,532,430.15,539,430.15,525"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <!--MD5=[25e8fb69fadb2b3690f4d296e89dd9dd]
+link ParentDataWidget to ProxyWidget-->
+          <path
+            d="M340.17,674.17 C346.21,668.39 352.17,662.65 358,657 C385.1,630.77 386.35,617.5 418,597 C422.66,593.98 427.47,591.08 432.41,588.27 "
+            fill="none" id="ParentDataWidget-&gt;ProxyWidget" style="stroke: #383838; stroke-width: 1.0;" />
+          <polygon fill="none" points="429.18,582.06,450.13,578.89,435.73,594.44,429.18,582.06"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <!--MD5=[2d741b11711b10077b3f911ecdc0f468]
+link PreferredSizeWidget to Widget-->
+          <path d="M691.51,649.72 C726.05,633.55 765.33,615.16 802.42,597.8 " fill="none"
+            id="PreferredSizeWidget-&gt;Widget" style="stroke: #383838; stroke-width: 1.0;" />
+          <polygon fill="none" points="799.62,591.38,820.71,589.24,805.56,604.06,799.62,591.38"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <!--MD5=[dd89818a2e080e5b4d266cc48de5acc8]
+link RenderObjectWidget to Widget-->
+          <path d="M745,813.84 C750.49,807.91 755.85,801.95 761,796 C797.27,754.11 832.84,704.88 862.79,660.36 "
+            fill="none" id="RenderObjectWidget-&gt;Widget" style="stroke: #383838; stroke-width: 1.0;" />
+          <polygon fill="none" points="857.07,656.32,873.98,643.55,868.72,664.08,857.07,656.32"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <!--MD5=[68ebf477cb17da37cf6a0dde5977f347]
+link State to StatefulWidget-->
+          <path d="M334.1177,277.732 C334.1177,277.732 459.7023,312.428 459.7023,312.428 " fill="none"
+            id="State-StatefulWidget" style="stroke: #383838; stroke-width: 1.0;" />
+          <polygon fill="#383838"
+            points="471.27,315.62,466.5502,310.1681,459.7023,312.428,464.4222,317.8799,471.27,315.62"
+            style="stroke: #383838; stroke-width: 1.0;" />
+          <polygon fill="#383838"
+            points="322.55,274.54,327.2698,279.9919,334.1177,277.732,329.3978,272.2801,322.55,274.54"
+            style="stroke: #383838; stroke-width: 1.0;" /><text fill="#000000" font-family="sans-serif" font-size="13"
+            lengthAdjust="spacingAndGlyphs" textLength="8" x="330.4551" y="289.6307">1</text><text fill="#000000"
+            font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="455.4396"
+            y="326.6203">1</text>
+          <!--MD5=[193ff32f63e3a27db00080f6dbe3e0db]
 @startuml
 skinparam monochrome true
 left to right direction
@@ -445,30 +1508,34 @@ Operating System: Mac OS X
 Default Encoding: UTF-8
 Language: zh
 Country: TW
---></g></svg></p>
-      </div>
-      <div class="md-sidebar-toc"></div>
-      <a id="sidebar-toc-btn">&#x2261;</a>
-    
-    
-    
-    
-    
-    
-    
-    
-<script>
+-->
+        </g>
+      </svg></p>
+  </div>
+  <div class="md-sidebar-toc"></div>
+  <a id="sidebar-toc-btn">&#x2261;</a>
 
-var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
-sidebarTOCBtn.addEventListener('click', function(event) {
-  event.stopPropagation()
-  if (document.body.hasAttribute('html-show-sidebar-toc')) {
-    document.body.removeAttribute('html-show-sidebar-toc')
-  } else {
-    document.body.setAttribute('html-show-sidebar-toc', true)
-  }
-})
-</script>
-      
-  
-    </body></html>
+
+
+
+
+
+
+
+  <script>
+
+    var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+    sidebarTOCBtn.addEventListener('click', function (event) {
+      event.stopPropagation()
+      if (document.body.hasAttribute('html-show-sidebar-toc')) {
+        document.body.removeAttribute('html-show-sidebar-toc')
+      } else {
+        document.body.setAttribute('html-show-sidebar-toc', true)
+      }
+    })
+  </script>
+
+
+</body>
+
+</html>
